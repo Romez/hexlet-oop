@@ -1,15 +1,10 @@
-import axios from 'axios';
-import getGeoData from '../src/getGeoData';
+import GeoLocator from '../src/GeoLocator';
 
-jest.mock('axios');
-
-it('getGeoData', () => {
-  expect.assertions(1);
-
+it('getGeoData', async () => {
   const resp = { city: 'spb', country: 'russia' };
-  axios.get.mockImplementation(() => Promise.resolve({ data: resp }));
+  const get = () => Promise.resolve({ data: resp });
+  const locator = new GeoLocator({ get });
 
-  return getGeoData('192.168.1.10', axios.get).then((data) => {
-    expect(data).toEqual(resp);
-  });
+  const data = await locator.getInfoByIp('192.168.0.1');
+  expect(data).toEqual(resp);
 });

@@ -15,3 +15,6 @@ $ make install
 ```sh
 $ make test
 ```
+
+`npm link`
+`get-geo 87.250.250.242`

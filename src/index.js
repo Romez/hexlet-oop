@@ -1,4 +1,4 @@
 import 'source-map-support/register';
-import getGeoData from './getGeoData';
+import getGeoData from './GeoLocator';
 
 export default getGeoData;
