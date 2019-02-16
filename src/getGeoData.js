@@ -1,9 +1,11 @@
 import ip from 'ip';
+import axios from 'axios';
+import getRequest from './geoRequest';
 
-export default (requestIp) => {
+export default async (requestIp) => {
   if (!requestIp) {
     return ip.address();
   }
-
-  return requestIp;
+  const res = await getRequest(requestIp, axios.get);
+  return res.data;
 };

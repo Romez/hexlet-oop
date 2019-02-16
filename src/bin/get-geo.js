@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import half from '..';
+import getGeo from '..';
 
-console.log(half(Number(process.argv[process.argv.length - 1])));
+getGeo(process.argv[process.argv.length - 1]).then((data) => {
+  console.log(data);
+});
