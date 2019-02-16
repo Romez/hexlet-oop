@@ -1,4 +1,3 @@
-import ip from 'ip';
 import { get } from 'axios';
 
 export default class GeoLocator {
@@ -11,10 +10,6 @@ export default class GeoLocator {
   }
 
   async getInfoByIp(ipAddr) {
-    if (!ipAddr) {
-      return ip.address();
-    }
-
     const url = [this.config.url, ipAddr].join('/');
     const res = await this.config.get(url);
     return res.data;

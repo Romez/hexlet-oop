@@ -7,7 +7,7 @@ const locator = new GeoLocator();
 
 const run = async () => {
   try {
-    const data = await locator.getInfoByIp(process.argv[process.argv.length - 1]);
+    const data = await locator.getInfoByIp(process.argv[2]);
     const table = new Table();
     Object.keys(data).forEach((key) => {
       table.push({
